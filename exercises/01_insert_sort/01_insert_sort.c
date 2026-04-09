@@ -12,8 +12,8 @@ void insertion_sort(Student students[], int n) {
   for (int i = 1; i < n; ++i) {
     int key = Student students[i];
     int j = i - 1;
-    while (j >= 0 && (Student students[j] > key) {
-      arr[j + 1] = Student students[j];
+    while (j >= 0 && (Student students[j] < key) {
+      Student students[j + 1] = Student students[j];
       j--;
     }
     Student students[j + 1] = key;
