@@ -18,7 +18,6 @@ void insertion_sort(Student students[], int n) {
     }
     Student students[j + 1] = key;
   }
-}
     // I AM NOT DONE
 }
 
