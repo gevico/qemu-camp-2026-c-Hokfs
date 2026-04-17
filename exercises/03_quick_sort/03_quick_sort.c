@@ -39,7 +39,7 @@ void quick_sort(int left, int right) {
     quick_sort(left, i - 1);  // 递归排左边
     quick_sort(i + 1, right);
 
-    // I AM NOT DONE
+
 }
 
 int main(void) {
