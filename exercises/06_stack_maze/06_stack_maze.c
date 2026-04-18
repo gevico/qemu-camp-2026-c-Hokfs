@@ -66,7 +66,7 @@ int main(void)
     }
 
     if (top > 0) {
-        for (int i = 0; i < top; i++) {
+        for (int i = top-1; i >= 0; i--) {
             // 严格输出格式：(行, 列)
             printf("(%d, %d)\n", stack[i].row, stack[i].col);
         }
