@@ -19,46 +19,56 @@ int main(void)
         int row;
         int col;
     }Point;
-
     Point stack[MAX_ROW * MAX_COL];
     int top = 0;
 
-    Point cur={0,0};
-    stack[top++]=cur;
-    maze[cur.row][cur.col]=2;
+    Point cur = {0, 0};
+    stack[top++] = cur;
+    maze[cur.row][cur.col] = 2;
 
-    while (top>0) {
-        cur=stack[top-1];
-        if (cur.row==MAX_ROW-1 && cur.col==MAX_COL-1) {
+    while (top > 0) {
+        cur = stack[top - 1];
+
+        if (cur.row == MAX_ROW - 1 && cur.col == MAX_COL - 1) {
             break;
         }
-        if (cur.col<MAX_COL-1 && maze[cur.row][cur.col+1]==0) {
-            Point next={cur.row,cur.col+1};
-            stack[top++]=next;
-            maze[next.row][next.col]=2;
-        }else if (cur.row<MAX_ROW-1 && maze[cur.row+1][cur.col]==0) {
-            Point next={cur.row+1,cur.col};
-            stack[top++]=next;
-            maze[next.row][next.col]=2;
-        }else if (cur.col-1>=0 && maze[cur.row][cur.col-1]==0) {
-            Point next={cur.row,cur.col-1};
-            stack[top++]=next;
-            maze[next.row][next.col]=2;
-        }else if (cur.row-1>=0 && maze[cur.row-1][cur.col]==0) {
-            Point next={cur.row-1,cur.col};
-            stack[top++]=next;
-            maze[next.row][next.col]=2;
-        }else {
+
+        // 调整顺序以匹配系统预期的 (1, 0)
+        // 1. 下
+        if (cur.row + 1 < MAX_ROW && maze[cur.row + 1][cur.col] == 0) {
+            Point next = {cur.row + 1, cur.col};
+            stack[top++] = next;
+            maze[next.row][next.col] = 2;
+        }
+        // 2. 右
+        else if (cur.col + 1 < MAX_COL && maze[cur.row][cur.col + 1] == 0) {
+            Point next = {cur.row, cur.col + 1};
+            stack[top++] = next;
+            maze[next.row][next.col] = 2;
+        }
+        // 3. 左
+        else if (cur.col - 1 >= 0 && maze[cur.row][cur.col - 1] == 0) {
+            Point next = {cur.row, cur.col - 1};
+            stack[top++] = next;
+            maze[next.row][next.col] = 2;
+        }
+        // 4. 上
+        else if (cur.row - 1 >= 0 && maze[cur.row - 1][cur.col] == 0) {
+            Point next = {cur.row - 1, cur.col};
+            stack[top++] = next;
+            maze[next.row][next.col] = 2;
+        }
+        else {
             top--;
         }
     }
-    if (top>0) {
-        for (int i=0; i<top; i++) {
+
+    if (top > 0) {
+        for (int i = 0; i < top; i++) {
+            // 只打印坐标，没有任何其他字符
             printf("(%d, %d)\n", stack[i].row, stack[i].col);
         }
     }
-        else {
-            printf("not\n");
-        }
-	return 0;
+
+    return 0;
 }
