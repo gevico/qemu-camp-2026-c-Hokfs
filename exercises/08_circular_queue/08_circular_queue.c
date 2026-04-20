@@ -42,7 +42,7 @@ int main() {
 
         if (counter % report_interval==0) {
             if (num% report_interval==0) {
-                printf("%d\n", p.id);  // 如果不行，试试 printf("%d ", p.id);
+                printf("%d ", p.id);  // 如果不行，试试 printf("%d ", p.id);
             }
             num++;
         }else {
@@ -52,7 +52,7 @@ int main() {
         }
         counter++;
     }
-    printf("最后剩下的人是: %d\n", q.data[q.head].id);
+    printf("\n最后剩下的人是: %d\n", q.data[q.head].id);
 
     return 0;
 }
