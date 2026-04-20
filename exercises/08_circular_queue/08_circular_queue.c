@@ -42,7 +42,8 @@ int main() {
 
         if (counter % report_interval==0) {
             //if (num% report_interval==0) {
-                printf("%d ", p.id);  // 如果不行，试试 printf("%d ", p.id);
+            printf("淘汰: %d\n", p.id);
+                //printf("%d ", p.id);  // 如果不行，试试 printf("%d ", p.id);
             //}
             //num++;
         }else {
