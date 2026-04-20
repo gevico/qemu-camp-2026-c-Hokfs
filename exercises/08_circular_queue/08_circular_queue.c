@@ -27,7 +27,7 @@ int main() {
 
     for(int i = 1;i <= total_people;i++) {
         q.data[q.tail].id=i;
-        q.tail=(q.tail+1) % MAX_PEOPLE;
+        q.tail=(q.tail+1)%MAX_PEOPLE;
         q.count++;
     }
 
@@ -35,15 +35,15 @@ int main() {
     while (q.count > 1) {
 
         People p = q.data[q.head];
-        q.head=(q.head+1) % MAX_PEOPLE;
+        q.head=(q.head+1)%MAX_PEOPLE;
         q.count--;
 
 
         if (counter % report_interval==0) {
             printf("%d\n", p.id);  // 如果不行，试试 printf("%d ", p.id);
         }else {
-            q.tail=(q.tail+1) % MAX_PEOPLE;
             q.data[q.tail]=p;
+            q.tail=(q.tail+1)%MAX_PEOPLE;
             q.count++;
         }
         counter++;
