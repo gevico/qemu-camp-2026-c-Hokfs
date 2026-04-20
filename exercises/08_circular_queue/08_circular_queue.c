@@ -40,7 +40,7 @@ int main() {
 
 
         if (counter % report_interval==0) {
-            printf("People reported: %d\n",p.id);
+            printf("第 %d 个人出局了\n", p.id);
         }else {
             q.data[q.tail]=p;
             q.tail=(q.tail+1) % MAX_PEOPLE;
