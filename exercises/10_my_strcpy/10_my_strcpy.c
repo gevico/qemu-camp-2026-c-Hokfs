@@ -12,9 +12,6 @@ int main() {
         i++;
     }
     destination[i] = '\0';
-
-
-    // I AM NOT DONE
     
     printf("拷贝后的字符串: %s", destination);
     
