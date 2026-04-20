@@ -42,8 +42,8 @@ int main() {
         if (counter % report_interval==0) {
             printf("%d\n", p.id);  // 如果不行，试试 printf("%d ", p.id);
         }else {
-            q.data[q.tail]=p;
             q.tail=(q.tail+1) % MAX_PEOPLE;
+            q.data[q.tail]=p;
             q.count++;
         }
         counter++;
