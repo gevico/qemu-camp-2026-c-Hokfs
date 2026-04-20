@@ -20,8 +20,34 @@ int main() {
     int report_interval=5;
 
     // TODO: 在这里添加你的代码
-    // I AM NOT DONE
-    
+
+    q.head=0;
+    q.tail=0;
+    q.count=0;
+
+    for(int i = 1;i <= total_people;i++) {
+        q.data[q.tail].id=i;
+        q.tail=(q.tail+1) % MAX_PEOPLE;
+        q.count++;
+    }
+
+    int counter=1;
+    while (q.count > 1) {
+
+        People p = q.data[q.head];
+        q.head=(q.head+1) % MAX_PEOPLE;
+        q.count--;
+
+
+        if (counter % report_interval==0) {
+            printf("People reported: %d\n",p.id);
+        }else {
+            q.data[q.tail]=p;
+            q.tail=(q.tail+1) % MAX_PEOPLE;
+            q.count++;
+        }
+        counter++;
+    }
     printf("最后剩下的人是: %d\n", q.data[q.head].id);
 
     return 0;
