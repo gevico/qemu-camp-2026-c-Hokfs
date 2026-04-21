@@ -14,7 +14,7 @@ int multiply(int a, int b) {
 }
 int divide(int a, int b) {
     if (b == 0) {
-        printf("divide by zero\n");
+        printf("错误：除数不能为0\n");
         return 0;
     }
     return a / b;
