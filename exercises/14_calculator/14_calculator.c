@@ -15,7 +15,7 @@ int multiply(int a, int b) {
 int divide(int a, int b) {
     if (b == 0) {
         printf("divide by zero\n");
-        return 0;
+        exit(1);
     }
     return a / b;
 }
