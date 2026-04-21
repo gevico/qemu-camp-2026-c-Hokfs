@@ -27,7 +27,7 @@ int main() {
 
     // TODO
     // hint:这是一个函数指针数组，在这之前应该先定义指针
-    int (*operators[])(int,int) = {add, subtract, multiply, divide};
+    int (*operations[])(int,int) = {add, subtract, multiply, divide};
 
     char operators[] = "+-*/";
 
