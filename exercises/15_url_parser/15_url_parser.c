@@ -13,6 +13,9 @@ int parse_url(const char* url) {
     int err = 0;
 
     // TODO: 在这里添加你的代码
+    if (url == NULL) {
+        return -1;
+    }
     const char*query_start = strchr(url, '?');
     if (query_start == NULL) {
         goto exit;
@@ -35,7 +38,7 @@ int parse_url(const char* url) {
 
             char *key = pair;
             char *value = equal + 1;
-            printf("%s=%s\n", key,value);
+            printf("key = %s, value = %s\n", key, value);
         }else {
             printf("%s\n", pair);
         }
@@ -44,7 +47,7 @@ int parse_url(const char* url) {
     free(query_copy);
 
 
-    
+
 exit:
     return err;
 }
